@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh_tw">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="expires" content="0">
+    <title>HWP Design</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans+TC:400,500&display=swap">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,900">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144652097-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'UA-144652097-1');
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/vendor/fontawesome.min.js"></script>
+    <script src="js/vendor/packs/solid.min.js"></script>
+    <script src="js/vendor/packs/brands.min.js"></script>
+    <script src="js/vendor/jquery.count.min.js"></script>
+    <script src="js/vendor/jquery.waypoints.min.js"></script>
+    <script src="js/vendor/jquery.validate.min.js"></script>
+  </head>
+  <body>
+    <header><a href="index.html">
+        <div class="site-logo">
+          <svg x="0" y="0" viewBox="0 0 120 60">
+            <path d="M36,0v60h-4V36h-4v24h-4V36H12v24H8V32h24v-4H8V0h4v24h12V0h4v24h4V0H36z M4,0L0,0l0,60h4V0z"></path>
+            <path d="M46.5,60L60,33l13.5,27h-4.4722L60,41.9443L50.9722,60H46.5z M74,0v43.0557l-4-8V0h-4v27.0557l-6-12l-6,12V0h-4v35.0557l-4,8V0h-4v60l18-36l18,36V0H74z"></path>
+            <path d="M102,0H84v60h4V36h4v24h4V36h6c9.9411,0,18-8.0589,18-18C120,8.0588,111.9411,0,102,0z M96,12h6c3.3084,0,6,2.6916,6,6s-2.6916,6-6,6h-6V12z M88,4h4v20h-4V4z M102,32H88v-4h14c5.5228,0,10-4.4772,10-10c0-5.5229-4.4772-10-10-10h-6V4h6c7.7196,0,14,6.2803,14,14C116,25.7196,109.7196,32,102,32z"></path>
+          </svg><span>Hank Wu Presents</span>
+        </div></a></header>
+    <main>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a class="current" href="contact.html">Contact</a></li>
+        </ul>
+        <ul class="social">
+          <li><a target="_blank" href="https://facebook.com/hsinhan.tw"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a target="_blank" href="https://codepen.io/sinhan"><i class="fab fa-codepen"></i></a></li>
+        </ul>
+      </nav>
+      <div class="wrapper">
+        <div class="container">
+          <div class="contact separate">
+            <div class="contact-wrap">
+              <div>
+                <h2>Send Me a <strong>Message</strong>.<br>I Would Love to Hear from You.</h2>
+                <p>在作品展示與自我介紹後，如果您有建議能提供給我，不妨留下訊息。</p>
+                <p>我們能聊聊關於前端與網頁設計的話題，我相信提出見解與討論交流，可以拓展新的視野，營造一個良性循環的學習環境，希望有機會能認識您。</p>
+                <p>若有關於工作方面的問題跟需求，也歡迎與我聯繫，我會盡快回覆您，期許我們有更進一步的機會能合作。</p>
+              </div>
+              <div>
+                <h3>聯絡我</h3><span>Contact</span>
+                <form class="contact-form" method="post" action="https://formspree.io/wusinhan@gmail.com">
+                  <div class="contact-form-wrap">
+                    <div class="contact-row">
+                      <h4>姓名</h4><span>Name</span>
+                      <input id="name" type="text" name="name" placeholder="您的姓名" required>
+                    </div>
+                    <div class="contact-row">
+                      <h4>信箱</h4><span>Mail</span>
+                      <input id="email" type="email" name="email" placeholder="您的信箱" required>
+                    </div>
+                    <div class="contact-row">
+                      <h4>訊息</h4><span>Message</span>
+                      <textarea class="contact-meassage" id="message" name="message" rows="3" data-min-rows="3" placeholder="請在這裡留下您的訊息" required></textarea>
+                    </div>
+                  </div>
+                  <!-- input(type='hidden' name='_next' value='thanks.html')-->
+                  <button type="submit" value="Send">送出</button>
+                  <script>
+                    $('.contact-form').validate({
+                      rules: {
+                        email: 'required email',
+                      },
+                      messages: {
+                        name: '請輸入您的姓名',
+                        email: {
+                          required: '請輸入您的信箱',
+                          email: '您的電子信箱格式似乎有誤，請再檢查一次',
+                        },
+                        message: '請輸入您的訊息',
+                      }
+                    });
+                    $(document).one('focus.contact-meassage', 'textarea.contact-meassage', function() {
+                      var savedValue = this.value;
+                      this.value = '';
+                      this.baseScrollHeight = this.scrollHeight;
+                      this.value = savedValue;
+                    })
+                    .on('input.contact-meassage', 'textarea.contact-meassage', function() {
+                      var minRows = this.getAttribute('data-min-rows') | 0, rows;
+                      this.rows = minRows;
+                      rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 36);
+                      this.rows = minRows + rows
+                    });
+                  </script>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="mobile"> 
+      <p>行動版頁面尚在開發中，敬請見諒。</p>
+    </div>
+    <footer>
+      <p class="copyright">© 2014 - <script>var date = new Date(); document.write(date.getFullYear());</script> HWP Website. All Rights Reserved.</p>
+    </footer>
+    <script src="js/vendor/jquery.pjax.min.js"></script>
+    <script src="js/global.js"></script>
+  </body>
+</html>
